@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CC=powerpc-linux-gnu-cc
+CFLAGS="-std=c11 -pedantic -Wall -Werror -g -O3 -Os -m32 -funsigned-char"
+OUTPUT="note.txt"
+
+if [ ! -e makefile ]; then
+    echo "There is no makefile..."
+    exit 1
+fi
+
+printf "#!/bin/sh\n\n/files/qemu-ppc-static a.real.out" > a.out
+chmod +x a.out
+make CC="$CC" CFLAGS="$CFLAGS -static" OUT="a.real.out"
+mv -f a.real.out a.out
+
+file=$(cat makefile | perl -n -e'/^FILE\s*=\s*(\w*)$/ && print $1')
+
+### Fill output-file
+$CC -v 2>&1 | sed -e '$!d' > $OUTPUT
+printf "\nCFLAGS = $CFLAGS\n" >> $OUTPUT
+printf "\noutput from size $file.o:\n" >> $OUTPUT
+powerpc-linux-gnu-size $file.o >> $OUTPUT
+printf "\noutput from objdump -d $file.o:\n" >> $OUTPUT
+powerpc-linux-gnu-objdump -d $file.o >> $OUTPUT
