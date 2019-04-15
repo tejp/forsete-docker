@@ -9,7 +9,7 @@ if [ ! -e makefile ]; then
     exit 1
 fi
 
-printf "#!/bin/sh\n\n/files/qemu-ppc-static a.real.out" > a.out
+printf "#!/bin/sh\n\n/files/run a.real.out" > a.out
 chmod +x a.out
 make CC="$CC" CFLAGS="$CFLAGS -static" OUT="a.real.out"
 mv -f a.real.out a.out

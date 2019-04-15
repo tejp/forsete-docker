@@ -11,7 +11,7 @@ For the course edaa25 taught at LTH.
 3. From assignment folder typing ```docker run --rm -it -v `pwd`:/workdir forsete``` will start forsete and enter the working directory.
 
 4. Type
-    - `note` to generate note.txt similarly to Forsete
+    - `note` to compile, test and generate a note.txt
     - `run a.out` to manually run the file with qemu
 
 5. Remove the image with `docker rmi forsete`
