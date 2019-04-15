@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 CC=powerpc-linux-gnu-cc
 CFLAGS="-std=c11 -pedantic -Wall -Werror -g -O3 -Os -m32 -funsigned-char"
 OUTPUT="note.txt"

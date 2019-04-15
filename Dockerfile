@@ -6,7 +6,7 @@ RUN printf "deb http://snapshot.debian.org/archive/debian/20170924T211901Z/ jess
 
 RUN install_packages curl
 
-RUN echo "deb http://www.emdebian.org/tools/debian/ jessie main" > /etc/apt/sources.list.d/crosstools.list && \
+RUN echo "deb http://emdebian.org/tools/debian/ jessie main" > /etc/apt/sources.list.d/crosstools.list && \
     curl http://emdebian.org/tools/debian/emdebian-toolchain-archive.key | apt-key add - && \
     dpkg --add-architecture powerpc
 RUN install_packages crossbuild-essential-powerpc
