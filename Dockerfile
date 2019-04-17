@@ -4,11 +4,10 @@ RUN printf "deb http://snapshot.debian.org/archive/debian/20170924T211901Z/ jess
         > /etc/apt/sources.list && \
     printf "Acquire::Check-Valid-Until \"0\";" > /etc/apt/apt.conf.d/10-no-check
 
-RUN install_packages curl
-
 RUN echo "deb http://emdebian.org/tools/debian/ jessie main" > /etc/apt/sources.list.d/crosstools.list && \
-    curl http://emdebian.org/tools/debian/emdebian-toolchain-archive.key | apt-key add - && \
+    apt-key adv --fetch-keys http://emdebian.org/tools/debian/emdebian-toolchain-archive.key && \
     dpkg --add-architecture powerpc
+
 RUN install_packages crossbuild-essential-powerpc
 
 RUN mkdir /files

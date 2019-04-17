@@ -20,5 +20,5 @@ For the course edaa25 taught at LTH.
 If you are interested, the cross-compiler installation instructions can be found at https://wiki.debian.org/CrossToolchains.
 
 ## Qemu
-qemu-ppc-static was acquired from http://debian.lth.se/debian/pool/main/q/qemu/qemu-user-static_2.10.0+dfsg-2_amd64.deb.
+qemu-ppc-static was acquired from https://snapshot.debian.org/archive/debian/20170924T211901Z/pool/main/q/qemu/qemu-user-static_2.1%2Bdfsg-12%2Bdeb8u6_amd64.deb.
 - There's a bug when running dynamically linked powerpc binaries with qemu, so must be compiled statically https://bugs.launchpad.net/ubuntu/+source/qemu/+bug/1349941.
