@@ -16,7 +16,7 @@ chmod +x a.out
 make CC="$CC" CFLAGS="$CFLAGS -static" OUT="a.real.out"
 mv -f a.real.out a.out
 
-file=$(cat makefile | perl -n -e'/^FILE\s*=\s*(\w*)$/ && print $1')
+file=$(cat makefile | perl -n -e'/^FILE\s*=\s*([^\s\\]+)\s*$/ && print $1')
 
 ### Fill output-file
 $CC -v 2>&1 | sed -e '$!d' > $OUTPUT
